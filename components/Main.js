@@ -22,17 +22,17 @@ const styles = StyleSheet.create({
   },
 });
 
-export default class Main extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.main}>
-            React Native Documentation
-          </Text>
-          <ListDocs navigator={this.props.navigator} />
-        </View>
+const Main = (props) => {
+  return (
+    <View style={styles.container}>
+      <View>
+        <Text style={styles.main}>
+          React Native Documentation
+        </Text>
+        <ListDocs navigator={props.navigator} />
       </View>
-    );
-  }
+    </View>
+  );
 }
+
+export default Main;

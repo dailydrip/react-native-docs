@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
   },
 });
 
-const detailsDocs = () => {
+const DetailsDocs = () => {
   return (
     <View style={styles.container}>
       <Text>Details Docs</Text>
@@ -22,4 +22,4 @@ const detailsDocs = () => {
     );
 }
 
-export default detailsDocs;
+export default DetailsDocs;
