@@ -6,6 +6,8 @@ import {
   View
 } from 'react-native';
 
+import ListDocs from './ListDocs/ListDocs'
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -24,9 +26,12 @@ export default class Main extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.main}>
-          Main Component
-        </Text>
+        <View>
+          <Text style={styles.main}>
+            React Native Documentation
+          </Text>
+          <ListDocs navigator={this.props.navigator} />
+        </View>
       </View>
     );
   }
