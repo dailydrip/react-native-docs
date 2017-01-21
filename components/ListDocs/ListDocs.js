@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import API from '../../api'
 import {
   StyleSheet,
   Text,
@@ -24,10 +25,10 @@ export default class ListDocs extends Component {
 
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
+    this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     this.state = {
-      dataSource: ds.cloneWithRows([
-        'TouchableHighlight', 'Image', 'Network', 'Text', 'StyleSheet', 'View', 'ListView', 'Component'
+      dataSource: this.ds.cloneWithRows([
+        'Loading...'
       ])
     };
 
@@ -41,6 +42,19 @@ export default class ListDocs extends Component {
     })
   }
 
+  componentWillMount(){
+    API.getDocsList()
+    .then((response) => {
+      console.log(response)
+      this.setState({
+        dataSource: this.ds.cloneWithRows(response)
+      })
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+  }
+
   render() {
     return (
       <View style={styles.container}>
@@ -48,9 +62,8 @@ export default class ListDocs extends Component {
           <ListView
             dataSource={this.state.dataSource}
             renderRow={(rowData) =>
-              <TouchableHighlight underlayColor='white' onPress={this.onClickList.bind(null, rowData)}>
+              <TouchableHighlight underlayColor='white' onPress={this.onClickList.bind(this, rowData)}>
               <View>
-                <Text>Docs</Text>
                 <Text style={styles.textComponent}>{rowData}</Text>
               </View>
               </TouchableHighlight>

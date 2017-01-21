@@ -15,7 +15,7 @@ function navigatorRenderScene(route, navigator) {
     case 'first':
       return (<Main navigator={navigator} title="Main Screen" />);
     case 'details':
-      return (<DetailsDocs navigator={navigator} title="Details Docs" />);
+      return (<DetailsDocs data={route.data} navigator={navigator} title="Details Docs" />);
   }
 }
 
