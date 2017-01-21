@@ -8,6 +8,6 @@
   "dependencies": {
     "js-base64": "^2.1.9",
     "react": "15.4",
-    "react-native": "0.40"
+    "react-native": "0.39"
   }
 }
