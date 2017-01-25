@@ -13,6 +13,8 @@ We are building this app at DailyDrip episodes, it is not yet finished.
 
 - [React Native Elements](https://github.com/react-native-community/react-native-elements).
 
+### Logo
+The logo was made by [Amy Lucas](http://www.amymariko.com/). Thanks, Amy!
 
 ### About DailyDrip
 ![DailyDrip](dailydrip.png)
