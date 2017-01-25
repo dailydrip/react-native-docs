@@ -41,12 +41,10 @@ export default class DetailsDocs extends Component {
   }
 
   render() {
-    var content = this.state.content;
-
     return (
       <View style={styles.container}>
         <ScrollView>
-          <Text>{this.state.content }</Text>
+          <Text>{ this.state.content }</Text>
         </ScrollView>
       </View>
     );
