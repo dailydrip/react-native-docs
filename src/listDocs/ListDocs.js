@@ -37,7 +37,7 @@ class ListDocs extends Component {
     var navigator = this.props.navigator
     return (
       <ListItem
-        onPress={this.log.bind(this, rowData)}
+        onPress={() => this.log(rowData)}
         title={rowData}
       />
     )

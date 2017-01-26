@@ -10,6 +10,8 @@ import DetailsDocs from './detailsDocs/DetailsDocsRootContainer'
 
 import { Tabs, Tab } from 'react-native-elements'
 
+import API from './api'
+
 let styles = {}
 
 class App extends Component {
@@ -17,11 +19,11 @@ class App extends Component {
     super()
     this.state = {
       selectedTab: 'listdocs',
-      item: ''
+      item: '',
+      itemContent: ''
     }
     this.changeTab = this.changeTab.bind(this)
     this.selectItem = this.selectItem.bind(this)
-    this.getItem = this.getItem.bind(this)
   }
   changeTab (selectedTab) {
     this.setState({
@@ -29,14 +31,26 @@ class App extends Component {
     })
   }
   selectItem(item){
+    alert(item)
     this.setState({item})
+    this.getContent(item)
   }
-  getItem(){
-    return this.state.item;
+  getContent(item) {
+    API.getDocsContent(item)
+    .then((response) => {
+      console.log(response)
+      this.setState({
+        itemContent: response
+      })
+    })
+    .catch((err) => {
+      console.error(err)
+    })
   }
+
   render () {
     const { toggleSideMenu } = this.props
-    const { selectedTab } = this.state
+    const { selectedTab, item, itemContent} = this.state
     return (
       <Tabs hidesTabTouch>
         <Tab
@@ -54,7 +68,7 @@ class App extends Component {
         <Tab
           selected={selectedTab === 'detailsdocs'}
           onPress={() => this.changeTab('detailsdocs')}>
-          <DetailsDocs getItem={this.getItem} changeTab={this.changeTab} />
+          <DetailsDocs itemContent={itemContent} changeTab={this.changeTab} />
         </Tab>
 
         <Tab

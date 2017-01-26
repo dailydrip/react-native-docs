@@ -10,45 +10,11 @@ import {
   SearchBar
 } from 'react-native-elements'
 
-import API from '../api'
-
 class DetailsDocs extends Component {
-  constructor (props) {
-    super()
-    this.getItem = props.getItem()
-    this.state = {
-      content: 'Loading...'
-    }
-
-    API.getDocsContent(this.getItem)
-    .then((response) => {
-      console.log(response)
-      this.setState({
-        content: response
-      })
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-  }
-
-  // componentDidUpdate(prevProps, prevState) {
-  //   API.getDocsContent(this.getItem)
-  //   .then((response) => {
-  //     console.log(response)
-  //     this.setState({
-  //       content: response
-  //     })
-  //   })
-  //   .catch((err) => {
-  //     console.error(err)
-  //   })
-  // }
-
   render () {
     return (
       <ScrollView keyboardShouldPersistTaps="always" style={styles.mainContainer}>
-        <Text> { this.state.content } </Text>
+        <Text> { this.props.itemContent } </Text>
       </ScrollView>
     )
   }
