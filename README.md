@@ -2,9 +2,12 @@
 
 ![DailyDrip](RNdocs_logo.png)
 
+
 This app allows you to visualize the current [React Native Documentation](https://facebook.github.io/react-native/docs/getting-started.html). It works for Android and iOS.
 
 We are building this app at DailyDrip episodes, it is not yet finished.
+
+![React Native Docs](React_Native_Docs.gif)
 
 - [Creating a React Native Docs App](https://www.dailydrip.com/topics/react-native/drips/creating-a-react-native-docs-app)
 - [Github API calls at React Native Docs](https://www.dailydrip.com/topics/react-native/drips/github-api-calls-at-react-native-docs)
