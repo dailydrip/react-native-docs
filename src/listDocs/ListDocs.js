@@ -15,10 +15,9 @@ const list1 = ['Loading']
 
 class ListDocs extends Component {
 
-  log(itemName) {
+  pressItem(itemName) {
     this.selectItem(itemName)
     this.changeTab('detailsdocs')
-    console.log('this is an example method')
   }
 
   constructor (props) {
@@ -31,13 +30,13 @@ class ListDocs extends Component {
     this.changeTab = props.changeTab
     this.selectItem = props.selectItem
     this.renderRow = this.renderRow.bind(this)
-    this.log = this.log.bind(this)
+    this.pressItem = this.pressItem.bind(this)
   }
   renderRow (rowData) {
     var navigator = this.props.navigator
     return (
       <ListItem
-        onPress={() => this.log(rowData)}
+        onPress={() => this.pressItem(rowData)}
         title={rowData}
       />
     )

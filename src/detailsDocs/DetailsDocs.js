@@ -10,14 +10,12 @@ import {
   SearchBar
 } from 'react-native-elements'
 
-class DetailsDocs extends Component {
-  render () {
-    return (
-      <ScrollView keyboardShouldPersistTaps="always" style={styles.mainContainer}>
-        <Text> { this.props.itemContent } </Text>
-      </ScrollView>
-    )
-  }
+const DetailsDocs = (props) => {
+  return (
+    <ScrollView keyboardShouldPersistTaps="always" style={styles.mainContainer}>
+      <Text> { props.itemContent } </Text>
+    </ScrollView>
+  )
 }
 
 styles = StyleSheet.create({

@@ -25,16 +25,18 @@ class App extends Component {
     this.changeTab = this.changeTab.bind(this)
     this.selectItem = this.selectItem.bind(this)
   }
+
   changeTab (selectedTab) {
     this.setState({
       selectedTab
     })
   }
+
   selectItem(item){
-    alert(item)
     this.setState({item})
     this.getContent(item)
   }
+
   getContent(item) {
     API.getDocsContent(item)
     .then((response) => {
@@ -68,7 +70,7 @@ class App extends Component {
         <Tab
           selected={selectedTab === 'detailsdocs'}
           onPress={() => this.changeTab('detailsdocs')}>
-          <DetailsDocs itemContent={itemContent} changeTab={this.changeTab} />
+          <DetailsDocs itemContent={itemContent} />
         </Tab>
 
         <Tab
@@ -84,7 +86,6 @@ class App extends Component {
         </Tab>
 
       </Tabs>
-
     )
   }
 }

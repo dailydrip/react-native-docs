@@ -1,29 +1,26 @@
-![React Native Hackathon Starter & UI Toolkit](http://i.imgur.com/kJA1dU0.png)
-### React Native Starter Project and UI Boilerplate using [React Native Elements](https://github.com/dabit3/React-Native-Elements)
+# React Native Docs
 
-![React Native UI Toolkit](http://i.imgur.com/tqxDeoG.png)
+![DailyDrip](RNdocs_logo.png)
 
-## Get Started
 
-1 clone Project
+This app allows you to visualize the current [React Native Documentation](https://facebook.github.io/react-native/docs/getting-started.html). It works for Android and iOS.
 
-```
-git clone git@github.com:dabit3/react-native-hackathon-starter.git
-```
+We are building this app at DailyDrip episodes, it is not yet finished.
 
-2 install dependencies
+![DailyDrip](React_Native_Docs.gif)
 
-```
-npm i
-```
+- [Creating a React Native Docs App](https://www.dailydrip.com/topics/react-native/drips/creating-a-react-native-docs-app)
+- [Github API calls at React Native Docs](https://www.dailydrip.com/topics/react-native/drips/github-api-calls-at-react-native-docs)
 
-3 link dependencies for react-native
+### Libraries
 
-```
-react-native link
-```
+- [React Native Elements](https://github.com/react-native-community/react-native-elements).
 
-4 run project
+### Logo
+The logo was made by [Amy Lucas](http://www.amymariko.com/). Thanks, Amy!
 
-The API for React Native Elements is located [here](https://github.com/dabit3/React-Native-Elements).
-
+### About DailyDrip
+![DailyDrip](dailydrip.png)
+>This code is part of [React Native
+>Drips](https://www.dailydrip.com/topics/react-native/), a daily and continous
+>learning website where you can just spend 5min a day and learn things.
