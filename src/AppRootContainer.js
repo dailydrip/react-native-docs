@@ -15,9 +15,10 @@ export default connect(
     return {
       fetchDocsList: () => {
         dispatch(Actions.fetchDocsList())
-      }
+      },
+      fetchDocsContent: (item) => {
+        dispatch(Actions.fetchDocsContent(item))
+      },
     }
   }
 )(App)
-
-// export default AppRootContainer

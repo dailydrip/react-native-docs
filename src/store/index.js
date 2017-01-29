@@ -6,8 +6,7 @@ import * as Loop from 'redux-loop'
 
 const initialState = Immutable.fromJS({
   content: {
-    item: {},
-    contentItem: {},
+    docsContent: '',
     docsList: []
   }
 })

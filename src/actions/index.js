@@ -1,18 +1,28 @@
-export const FETCH_CONTENT = 'FETCH_CONTENT'
+export const FETCH_DOCS_CONTENT = 'FETCH_DOCS_CONTENT'
 export const FETCH_DOCS_LIST = 'FETCH_DOCS_LIST'
+
 export const GOT_DOCS_LIST = 'GOT_DOCS_LIST'
+export const GOT_DOCS_CONTENT = 'GOT_DOCS_CONTENT'
+
 export const NO_OP = 'NO_OP'
 
-const setItem = (item) => {
+const fetchDocsContent = (item) => {
   return {
-    type: SET_ITEM,
-    item,
+    type: FETCH_DOCS_CONTENT,
+    item
   }
 }
 
 const fetchDocsList = () => {
   return {
     type: FETCH_DOCS_LIST
+  }
+}
+
+const gotDocsContent = (content) => {
+  return {
+    type: GOT_DOCS_CONTENT,
+    content,
   }
 }
 
@@ -23,8 +33,16 @@ const gotDocsList = (content) => {
   }
 }
 
+const noOp = () => {
+  return {
+    type: NO_OP
+  }
+}
+
 export const Actions = {
+  fetchDocsContent,
   fetchDocsList,
-  setItem,
+  gotDocsContent,
   gotDocsList,
+  noOp
 }
