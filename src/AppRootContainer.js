@@ -1,16 +1,23 @@
 import React, { Component } from 'react'
 import App from './App'
-import { Provider } from 'react-redux';
-import createStore from './createStore'
-
-const store = createStore();
+import { connect } from 'react-redux'
+import { Actions } from './actions'
 
 const AppRootContainer  = () => {
   return (
-    <Provider store={store}>
-      <App />
-    </Provider>
+    <App />
   )
 }
 
-export default AppRootContainer
+export default connect(
+  () => { return {} },
+  dispatch => {
+    return {
+      fetchDocsList: () => {
+        dispatch(Actions.fetchDocsList())
+      }
+    }
+  }
+)(App)
+
+// export default AppRootContainer

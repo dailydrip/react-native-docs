@@ -15,13 +15,15 @@ import API from './api'
 let styles = {}
 
 class App extends Component {
-  constructor () {
+  constructor (props) {
     super()
+
     this.state = {
       selectedTab: 'listdocs',
       item: '',
-      itemContent: ''
+      itemContent: '',
     }
+    props.fetchDocsList()
     this.changeTab = this.changeTab.bind(this)
     this.selectItem = this.selectItem.bind(this)
   }
@@ -52,7 +54,7 @@ class App extends Component {
 
   render () {
     const { toggleSideMenu } = this.props
-    const { selectedTab, item, itemContent} = this.state
+    const { selectedTab, item, itemContent, docsList} = this.state
     return (
       <Tabs hidesTabTouch>
         <Tab

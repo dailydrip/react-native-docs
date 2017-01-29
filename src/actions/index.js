@@ -1,4 +1,6 @@
 export const FETCH_CONTENT = 'FETCH_CONTENT'
+export const FETCH_DOCS_LIST = 'FETCH_DOCS_LIST'
+export const GOT_DOCS_LIST = 'GOT_DOCS_LIST'
 export const NO_OP = 'NO_OP'
 
 const setItem = (item) => {
@@ -8,27 +10,21 @@ const setItem = (item) => {
   }
 }
 
-const fetchContent = () => {
+const fetchDocsList = () => {
   return {
-    type: FETCH_CONTENT
+    type: FETCH_DOCS_LIST
   }
 }
 
-const setContent = (content) => {
+const gotDocsList = (content) => {
   return {
-    type: SET_CONTENT,
+    type: GOT_DOCS_LIST,
     content,
   }
 }
 
-const noOp = () => {
-  return {
-    type: NO_OP
-  }
-}
-
 export const Actions = {
-  setContent,
+  fetchDocsList,
   setItem,
-  fetchContent
+  gotDocsList,
 }

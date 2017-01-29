@@ -1,11 +1,15 @@
-import { createStore, applyMiddleware, compose } from 'redux'
+import { createStore, compose } from 'redux'
 import Immutable from 'immutable'
+import * as reducers from './reducers'
 
 import * as Loop from 'redux-loop'
 
 const initialState = Immutable.fromJS({
-  item: {},
-  contentItem: {}
+  content: {
+    item: {},
+    contentItem: {},
+    docsList: []
+  }
 })
 
 const enhancer = compose(
@@ -22,3 +26,5 @@ const store = createStore(
   initialState,
   enhancer
 )
+
+export default store
