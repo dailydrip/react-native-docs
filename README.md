@@ -1,6 +1,6 @@
 # React Native Docs
 
-![DailyDrip](/src/images/logo.png)
+![DailyDrip](logo_gray.png)
 
 
 This app allows you to visualize the current [React Native Documentation](https://facebook.github.io/react-native/docs/getting-started.html). It works for Android and iOS.
