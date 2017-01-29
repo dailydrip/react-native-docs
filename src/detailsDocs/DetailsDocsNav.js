@@ -12,7 +12,7 @@ class DetailsDocsNav extends Component {
   }
   renderScene (route, navigator) {
     return (
-      <route.component itemContent={this.props.itemContent} navigator={navigator} {...route.passProps} />
+      <route.component docsContent={this.props.docsContent} navigator={navigator} {...route.passProps} />
     )
   }
   render () {

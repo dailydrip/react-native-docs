@@ -13,7 +13,7 @@ import {
 const DetailsDocs = (props) => {
   return (
     <ScrollView keyboardShouldPersistTaps="always" style={styles.mainContainer}>
-      <Text> { props.itemContent } </Text>
+      <Text> { props.docsContent } </Text>
     </ScrollView>
   )
 }

@@ -12,7 +12,7 @@ class ListDocsNav extends Component {
   }
   renderScene (route, navigator) {
     return (
-      <route.component selectItem={this.props.selectItem} changeTab={this.props.changeTab} navigator={navigator} {...route.passProps} />
+      <route.component docsList={this.props.docsList} fetchDocsContent={this.props.fetchDocsContent} changeTab={this.props.changeTab} navigator={navigator} {...route.passProps} />
     )
   }
   render () {

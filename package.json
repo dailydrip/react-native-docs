@@ -7,6 +7,7 @@
 		"test": "jest"
 	},
 	"dependencies": {
+		"immutable": "^3.8.1",
 		"jest-react-native": "^18.0.0",
 		"lodash": "^4.17.4",
 		"react": "~15.4.0-rc.4",
@@ -14,7 +15,8 @@
 		"react-native-elements": "^0.9.1",
 		"react-native-vector-icons": "^4.0.0",
 		"react-redux": "^5.0.1",
-		"redux": "^3.6.0"
+		"redux": "^3.6.0",
+		"redux-loop": "^2.2.2"
 	},
 	"devDependencies": {
 		"babel-jest": "18.0.0",

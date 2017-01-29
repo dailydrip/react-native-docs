@@ -15,15 +15,14 @@ import API from './api'
 let styles = {}
 
 class App extends Component {
-  constructor () {
+  constructor (props) {
     super()
+
     this.state = {
       selectedTab: 'listdocs',
-      item: '',
-      itemContent: ''
     }
+    props.fetchDocsList()
     this.changeTab = this.changeTab.bind(this)
-    this.selectItem = this.selectItem.bind(this)
   }
 
   changeTab (selectedTab) {
@@ -32,27 +31,9 @@ class App extends Component {
     })
   }
 
-  selectItem(item){
-    this.setState({item})
-    this.getContent(item)
-  }
-
-  getContent(item) {
-    API.getDocsContent(item)
-    .then((response) => {
-      console.log(response)
-      this.setState({
-        itemContent: response
-      })
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-  }
-
   render () {
     const { toggleSideMenu } = this.props
-    const { selectedTab, item, itemContent} = this.state
+    const { selectedTab, item, itemContent, docsList} = this.state
     return (
       <Tabs hidesTabTouch>
         <Tab
@@ -64,13 +45,13 @@ class App extends Component {
           renderIcon={() => <Icon style={{paddingBottom: 4 }} color={colors.grey2} name='list' size={26} />}
           renderSelectedIcon={() => <Icon color={colors.primary} name='list' size={26} />}
           onPress={() => this.changeTab('listdocs')}>
-          <ListDocs changeTab={this.changeTab} selectItem={this.selectItem} />
+          <ListDocs changeTab={this.changeTab} />
         </Tab>
 
         <Tab
           selected={selectedTab === 'detailsdocs'}
           onPress={() => this.changeTab('detailsdocs')}>
-          <DetailsDocs itemContent={itemContent} />
+          <DetailsDocs />
         </Tab>
 
         <Tab

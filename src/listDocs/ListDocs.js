@@ -16,22 +16,23 @@ const list1 = ['Loading']
 class ListDocs extends Component {
 
   pressItem(itemName) {
-    this.selectItem(itemName)
+    this.fetchDocsContent(itemName)
     this.changeTab('detailsdocs')
   }
 
   constructor (props) {
     super(props)
+    this.fetchDocsContent = props.fetchDocsContent;
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
-
     this.state = {
       dataSource: this.ds.cloneWithRows(list1)
     }
+
     this.changeTab = props.changeTab
-    this.selectItem = props.selectItem
     this.renderRow = this.renderRow.bind(this)
     this.pressItem = this.pressItem.bind(this)
   }
+
   renderRow (rowData) {
     var navigator = this.props.navigator
     return (
@@ -42,18 +43,12 @@ class ListDocs extends Component {
     )
   }
 
-  componentWillMount(){
-    API.getDocsList()
-    .then((response) => {
-      console.log(response)
-      this.setState({
-        dataSource: this.ds.cloneWithRows(response)
-      })
-    })
-    .catch((err) => {
-      console.error(err)
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      dataSource: this.ds.cloneWithRows(nextProps.docsList)
     })
   }
+
   render () {
     return (
       <ScrollView keyboardShouldPersistTaps="always" style={styles.mainContainer}>

@@ -19,7 +19,7 @@ export default {
       return names;
     })
   },
-  getDocsContent: function getDrips(name) {
+  getDocsContent: function getDocsContent(name) {
     return fetch(docsContentUrl(name))
     .then((response) => response.json())
     .then((json) => {
