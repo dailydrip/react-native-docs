@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import App from './App'
 import { connect } from 'react-redux'
 import { Actions } from './actions'
-import { TabNavigator } from 'react-navigation';
 
 
 const AppRootContainer  = () => {

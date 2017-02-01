@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
-import { View, Image, StyleSheet, ScrollView, ListView } from 'react-native'
+import { View, Image, StyleSheet, ScrollView } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Header from '../header'
 
 import {
-  List,
-  ListItem,
   Text,
-  SearchBar
 } from 'react-native-elements'
 
 const DetailsDocs = (props) => {
@@ -20,6 +17,14 @@ const DetailsDocs = (props) => {
     </View>
   )
 }
+
+DetailsDocs.navigationOptions = {
+  title: '',
+  tabBar: {
+    icon: () =>(
+      null
+    )}
+};
 
 styles = StyleSheet.create({
   mainContainer: {

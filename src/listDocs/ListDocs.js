@@ -9,10 +9,9 @@ import {
   Text,
   SearchBar
 } from 'react-native-elements'
-import API from '../api'
 import Header from '../header'
 
-const list1 = ['Loading']
+const list = ['Loading']
 
 class ListDocs extends Component {
 
@@ -31,7 +30,7 @@ class ListDocs extends Component {
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
 
     this.state = {
-      dataSource: this.ds.cloneWithRows(list1)
+      dataSource: this.ds.cloneWithRows(list)
     }
 
     this.changeTab = props.changeTab

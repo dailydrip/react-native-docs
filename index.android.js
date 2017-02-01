@@ -12,5 +12,4 @@ const HackathonStarter  = () => {
   )
 }
 
-
 AppRegistry.registerComponent('HackathonStarter', () => HackathonStarter)

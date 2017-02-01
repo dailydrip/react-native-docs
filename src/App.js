@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Platform, Text } from 'react-native'
+import { StyleSheet, Platform } from 'react-native'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import colors from 'HSColors'
 import fonts from 'HSFonts'
@@ -8,27 +8,12 @@ import About from './about/AboutRootContainer'
 import ListDocs from './listDocs/ListDocsRootContainer'
 import DetailsDocs from './detailsDocs/DetailsDocsRootContainer'
 
-import { Tabs, Tab } from 'react-native-elements'
 import { TabNavigator } from 'react-navigation';
 
-import API from './api'
-
-class App extends Component {
-  constructor (props) {
-    super()
-    props.fetchDocsList()
-  }
-
-  render () {
-    return (
-      null
-    )
-  }
-}
-
-const SimpleApp = TabNavigator({
+const App = TabNavigator({
   List: { screen: ListDocs },
   Details: { screen: DetailsDocs },
+  About: { screen: About },
 });
 
 styles = StyleSheet.create({
@@ -41,4 +26,4 @@ styles = StyleSheet.create({
   }
 })
 
-export default SimpleApp
+export default App
