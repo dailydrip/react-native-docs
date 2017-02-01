@@ -1,4 +1,4 @@
-import DetailsDocsNav from './DetailsDocsNav'
+import DetailsDocs from './DetailsDocs'
 import { connect } from 'react-redux'
 
 function mapStateToProps (state) {
@@ -10,5 +10,5 @@ function mapDispatchToProps (dispatch) {
   return {}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DetailsDocsNav)
+export default connect(mapStateToProps, mapDispatchToProps)(DetailsDocs)
 // export default DetailsDocsNav

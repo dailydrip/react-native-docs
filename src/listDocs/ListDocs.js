@@ -10,20 +10,26 @@ import {
   SearchBar
 } from 'react-native-elements'
 import API from '../api'
+import Header from '../header'
 
 const list1 = ['Loading']
 
 class ListDocs extends Component {
 
-  pressItem(itemName) {
-    this.fetchDocsContent(itemName)
-    this.changeTab('detailsdocs')
-  }
+  static navigationOptions = {
+    tabBar: {
+      icon: () =>(
+        <Icon style={{paddingBottom: 4 }} name='list' size={26} />
+      )}
+  };
 
   constructor (props) {
     super(props)
+    props.fetchDocsList()
+
     this.fetchDocsContent = props.fetchDocsContent;
     this.ds = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2})
+
     this.state = {
       dataSource: this.ds.cloneWithRows(list1)
     }
@@ -33,12 +39,18 @@ class ListDocs extends Component {
     this.pressItem = this.pressItem.bind(this)
   }
 
-  renderRow (rowData) {
-    var navigator = this.props.navigator
+  pressItem(itemName){
+    const { navigate } = this.props.navigation;
+
+    this.fetchDocsContent(itemName)
+    navigate('Details', { contentItem: 'contentItem' })
+  }
+
+  renderRow (rowDataItem) {
     return (
       <ListItem
-        onPress={() => this.pressItem(rowData)}
-        title={rowData}
+        onPress={() => this.pressItem(rowDataItem)}
+        title={rowDataItem}
       />
     )
   }
@@ -51,51 +63,29 @@ class ListDocs extends Component {
 
   render () {
     return (
-      <ScrollView keyboardShouldPersistTaps="always" style={styles.mainContainer}>
-        <List>
-          <ListView
-            renderRow={this.renderRow}
-            dataSource={this.state.dataSource}
-            />
-        </List>
-      </ScrollView>
+      <View>
+        <Header />
+        <ScrollView keyboardShouldPersistTaps="always" style={styles.mainContainer}>
+          <List>
+            <ListView
+              renderRow={this.renderRow}
+              dataSource={this.state.dataSource}
+              />
+          </List>
+        </ScrollView>
+      </View>
     )
   }
 }
 
 styles = StyleSheet.create({
   mainContainer: {
-    marginTop: 40,
-    backgroundColor: '#ebedf1'
+    backgroundColor: 'white'
   },
-  container: {
-    marginTop: 60
+   tabIcon: {
+    width: 16,
+    height: 16,
   },
-  heading: {
-    color: 'white',
-    marginTop: 10,
-    fontSize: 22
-  },
-  hero: {
-    marginTop: 60,
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: 40,
-    backgroundColor: '#69DDFF'
-  },
-  subtitleView: {
-    flexDirection: 'row',
-    paddingLeft: 10,
-    paddingTop: 5
-  },
-  ratingImage: {
-    height: 19.21,
-    width: 100
-  },
-  ratingText: {
-    paddingLeft: 10,
-    color: 'grey'
-  }
 })
 
 export default ListDocs
