@@ -1,4 +1,4 @@
-import ListDocsNav from './ListDocsNav'
+import ListDocs from './ListDocs'
 import { connect } from 'react-redux'
 import { Actions } from '../actions'
 
@@ -12,8 +12,11 @@ function mapDispatchToProps (dispatch) {
       fetchDocsContent: (item) => {
         dispatch(Actions.fetchDocsContent(item))
       },
+      fetchDocsList: () => {
+        dispatch(Actions.fetchDocsList())
+      },
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ListDocsNav)
+export default connect(mapStateToProps, mapDispatchToProps)(ListDocs)
 // export default ListDocsNav
